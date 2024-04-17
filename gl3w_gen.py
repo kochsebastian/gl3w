@@ -103,10 +103,13 @@ touch_dir(os.path.join(args.root, 'include/KHR'))
 touch_dir(os.path.join(args.root, 'src'))
 
 # Download glcorearb.h and khrplatform.h
-download('https://registry.khronos.org/OpenGL/api/GL/glcorearb.h',
-         os.path.join(args.root, 'include/GL/glcorearb.h'))
-download('https://registry.khronos.org/EGL/api/KHR/khrplatform.h',
-         os.path.join(args.root, 'include/KHR/khrplatform.h'))
+#download('https://registry.khronos.org/OpenGL/api/GL/glcorearb.h',
+#         os.path.join(args.root, 'include/GL/glcorearb.h'))
+#download('https://registry.khronos.org/EGL/api/KHR/khrplatform.h',
+#         os.path.join(args.root, 'include/KHR/khrplatform.h'))
+import shutil
+shutil.copyfile('/home/eok3fe/glcorearb.h', os.path.join(args.root, 'include/GL/glcorearb.h'))
+shutil.copyfile('/home/eok3fe/khrplatform.h', os.path.join(args.root, 'include/KHR/khrplatform.h'))
 
 # Parse function names from glcorearb.h
 print('Parsing glcorearb.h header...')
